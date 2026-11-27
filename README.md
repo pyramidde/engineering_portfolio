@@ -18,27 +18,13 @@ A passion project serving multiple disciplinaries teaching me essential skills a
 - **Key challenge:** Overall lifecycle maintenance
 - **Result:** Partial mapping using 3D point cloud scans of my school paired with an edge compute device. Succesful outdoor trials lasting  hours in various terrains (sand, gravel, tall grass, and pavements).
 
-
-### [Project Name]
-[One or two sentences explaining the project's purpose.]
-
-- **My contribution:** [Your role and work]
-- **Tools and technologies:** [Tools used]
-- **Key challenge:** [An engineering problem you worked through]
-- **Result:** [What you achieved or learned]
+https://cad.onshape.com/documents/97e509dcc58abbcf0dd56510/w/e264f571d42d4b99d44f834a/e/7a510edd33064485b481e86c?renderMode=0&uiState=6b09914396fef1e94577bd8e
 
 
-## Engineering Skills
-
-- **Design:** [Skills and tools you have used]
-- **Programming:** [Languages and relevant applications]
-- **Electronics and hardware:** [Components, systems, or techniques]
-- **Testing and analysis:** [Methods you have applied]
 
 ## Achievements
 
-- **[Award / competition / certification]** — [Organization, year]
-  [Brief context and your contribution]
+- **[Award / competition / certification]** 
 
 ## Currently Exploring
 
