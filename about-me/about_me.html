@@ -1,0 +1,65 @@
+<!--just cp for all html pages + php-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main-homepage/main.css">
+    <link rel="stylesheet" href="/about-me/about_me.css"> <!--also using the same css for the navbar is ok keep this the same or add more css if needed-->
+    <script src="/about-me/about_me.js"></script> <!--future me if you plan to use jquery pls put here-->
+    <script src="jquery-3.7.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <title>danielpanganiban</title>
+</head>
+
+<!--just cp for all html pages + php-->
+<body style="background-color: black; overflow-x: hidden;">
+<!--literally pain in the ass navbar-->
+<nav class="navbar navbar-expand-md navbar-light fixed-top navbar-blur" style="padding: 1vh;">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#MainNavigationBar" aria-label="Toggle navigation" style="transform: translateX(-4vh);">
+      <span style="font-family: arial; font-weight: bold; color: white;">Menu</span>
+    </button>
+
+  <!-- justify-content-center centers the links; no padding-right on the ul -->
+  <div class="collapse navbar-collapse justify-content-center" id="MainNavigationBar">
+    <ul class="navbar-nav d-flex align-items-center gap-3">
+      <li class="nav-item">
+        <a class="nav-link" href="/main-homepage/main_home.html" style="font-family: arial; font-weight: 450; color: white; font-size: 1.5vh; text-shadow: 0 2px 10px rgba(0, 0, 0, .5);">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/projects_homepage.html" style="font-family: arial; font-weight: 450; color: white; font-size: 1.5vh; text-shadow: 0 2px 10px rgba(0, 0, 0, .5);">Projects</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/contacts/contacts.html" style="font-family: arial; font-weight: 450; color: white; font-size: 1.5vh; text-shadow: 0 2px 10px rgba(0, 0, 0, .5);">Contacts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about-me/about_me.html" style="font-family: arial; font-weight: 450; color: white; font-size: 1.5vh; text-shadow: 0 2px 10px rgba(0, 0, 0, .5);">About Me</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--literally pain in the ass navbar-->
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+<!-- footer -->
+<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+  <div class="text-center p-4" style="background-color: black; font-family: system-ui; font-weight: medium; font-size: 1.3vh; color: rgb(69, 69, 69);">
+    <div style="display: flex; justify-content: center; align-items: center; gap: 15px; color: white;">
+      <div style="margin-right:3vh;">Daniel Panganiban © 2025</div>
+        <a href="/main-homepage/main_home.html" style="text-decoration: none; color: white;">Home</a>
+        <a href="/projects/projects_homepage.html" style="text-decoration: none; color: white ;">Projects</a>
+        <a href="/contacts/contacts.html" style="text-decoration: none; color: white ;">Contacts</a>
+        <a href="/about-me/about_me.html" style="text-decoration: none; color: white ;">About Me</a>
+    </div>
+  </div>
+</footer>
+<!-- footer -->
+
+</body>
+

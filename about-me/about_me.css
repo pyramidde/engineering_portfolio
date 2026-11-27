@@ -1,0 +1,36 @@
+/* all animations p.s. all delay are different animation groups on either x,y axis, and other fade stuff (beyond this are animations/transistions) */
+
+.animations {
+    opacity: 0;
+    filter: blur(50);
+    transform: translateX(50%);
+    transition: all 1s;
+}
+
+.animations.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.delay{
+    transform: translateX(-25%);
+    filter: blur(100);
+}
+
+.delay2{
+    
+    filter: blur(100);
+}
+
+.delay3{
+    transform: translateY(-100%);
+    filter: blur(100);
+}
+
+.delay4{
+    transform: translateY(100%);
+    filter: blur(100);
+}
+
+

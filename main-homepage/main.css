@@ -1,0 +1,75 @@
+*************************************************************************************
+.top-video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+ .navbar-blur{
+
+    backdrop-filter: blur(2px);           
+    -webkit-backdrop-filter: blur(10px);     
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
+
+  }
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.navbar-toggler {
+  border: none !important;
+  background: transparent !important;
+}
+
+.navbar-toggler span {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.shift_left {
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.shift_right {
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+}
+/* all animations p.s. all delay are different animation groups on either x,y axis, and other fade stuff (beyond this are animations/transistions) */
+
+.animations {
+    opacity: 0;
+    filter: blur(50);
+    transform: translateX(50%);
+    transition: all 1s;
+}
+
+.animations.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.delay{
+    transform: translateX(-25%);
+    filter: blur(100);
+}
+
+.delay2{
+    
+    filter: blur(100);
+}
+
+.delay3{
+    transform: translateY(-100%);
+    filter: blur(100);
+}
+
+.delay4{
+    transform: translateY(100%);
+    filter: blur(100);
+}
+

@@ -1,0 +1,324 @@
+/* ===== Timeline with a video behind each entry ===== */
+
+.vtl {
+  --vtl-line: rgba(255, 255, 255, 0.9);
+  --vtl-accent: #3d6b40;                       /* date + circle color: set this to your green */
+  --vtl-card-bg: rgba(255, 255, 255, 0.82);    /* last number = opacity: 1 is solid white */
+  --vtl-card-text: #1a1a1a;
+  --vtl-muted: #555555;
+
+  --vtl-gap: 40px;                             /* space between the line and each card */
+  --vtl-dot: 18px;                             /* circle size */
+  --vtl-pad: 60px;                             /* space above and below each card */
+  --vtl-ratio: 16 / 9;                         /* your video's shape, so nothing is cropped */
+  --vtl-video-filter: blur(0.5px) brightness(70%);   /* set to "none" for a plain video */
+
+  position: relative;
+  width: 100%;
+  background: #000;
+}
+
+/* ----- one entry = one full-width band ----- */
+.vtl-item {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  aspect-ratio: var(--vtl-ratio);
+  padding: var(--vtl-pad) 0;
+  box-sizing: border-box;
+}
+
+/* the video behind the entry */
+.vtl-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  transform: scale(1.03);
+  filter: var(--vtl-video-filter);
+}
+
+/* centered column that holds the card */
+.vtl-inner {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  justify-content: flex-start;            /* odd = left */
+}
+
+.vtl-item:nth-of-type(even) .vtl-inner {
+  justify-content: flex-end;              /* even = right */
+}
+
+/* vertical line through the band */
+.vtl-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  transform: translateX(-50%);
+  background: var(--vtl-line);
+  z-index: 1;
+}
+
+/* first entry: the line starts at its circle instead of the top of the band */
+.vtl-item:first-of-type::before {
+  top: 50%;
+}
+
+/* last entry: the line ends at its circle instead of running to the bottom */
+.vtl-item:last-of-type::before {
+  bottom: 50%;
+}
+
+/* circle, always centered on the card */
+.vtl-item::after {
+  content: '';
+  position: absolute;
+  box-sizing: border-box;
+  top: 50%;
+  left: 50%;
+  width: var(--vtl-dot);
+  height: var(--vtl-dot);
+  transform: translate(-50%, -50%);
+  background: var(--vtl-accent);
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--vtl-accent) 35%, transparent);
+  z-index: 2;
+}
+
+/* ----- manual line extension (a plain vertical line between bands) ----- */
+.vtl-line {
+  display: block;
+  position: relative;
+  height: 120px;                          /* default; override with style="height: ..." */
+}
+
+.vtl-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  transform: translateX(-50%);
+  background: var(--vtl-line);
+}
+
+/* ----- the card ----- */
+.vtl-card {
+  position: relative;
+  box-sizing: border-box;
+  width: calc(50% - var(--vtl-gap));
+  padding: 20px 26px 22px;
+  background: var(--vtl-card-bg);
+  color: var(--vtl-card-text);
+  border-radius: 10px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vtl-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+}
+
+/* arrow pointing at the circle */
+.vtl-card::before {
+  content: '';
+  position: absolute;
+  top: calc(50% - 10px);
+  right: -10px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent var(--vtl-card-bg);
+}
+
+.vtl-item:nth-of-type(even) .vtl-card::before {
+  right: auto;
+  left: -10px;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent var(--vtl-card-bg) transparent transparent;
+}
+
+/* ----- card text ----- */
+.vtl-date {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vtl-accent);
+}
+
+.vtl-title {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--vtl-card-text);
+}
+
+.vtl-text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--vtl-muted);
+}
+
+/* bullet lines inside a card */
+.vtl-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--vtl-muted);
+}
+
+.vtl-list li {
+  margin-bottom: 6px;
+}
+
+.vtl-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* ----- mobile: line on the left, cards on the right ----- */
+@media (max-width: 700px) {
+  .vtl-item::before,
+  .vtl-item::after,
+  .vtl-line::before {
+    left: 14px;
+  }
+
+  .vtl-inner,
+  .vtl-item:nth-of-type(even) .vtl-inner {
+    justify-content: flex-end;
+    padding: 0 16px 0 0;
+  }
+
+  .vtl-card {
+    width: calc(100% - 46px);
+  }
+
+  .vtl-card::before,
+  .vtl-item:nth-of-type(even) .vtl-card::before {
+    right: auto;
+    left: -10px;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent var(--vtl-card-bg) transparent transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vtl-card { transition: none; }
+  .vtl-card:hover { transform: none; }
+}
+
+/* ===== Top skills ===== */
+.sk {
+  --sk-accent: #3d6b40;                       /* same green as the timeline */
+  --sk-card-bg: rgba(255, 255, 255, 0.82);
+  --sk-card-text: #1a1a1a;
+  --sk-ratio: 16 / 9;                         /* your video's shape (width / height) */
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;                        /* keeps the cards vertically centered */
+  box-sizing: border-box;
+  aspect-ratio: var(--sk-ratio);              /* section is exactly the video's shape, so nothing is cropped */
+  padding: 60px 16px;
+  background: #000;
+}
+
+/* video (or image) behind the section: a bit of blur, slightly dimmed, no fade */
+.sk-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: blur(0.5px) brightness(90%);
+}
+
+.sk-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sk-title {
+  margin: 0 0 32px;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.sk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.sk-card {
+  box-sizing: border-box;
+  padding: 22px 24px 24px;
+  background: var(--sk-card-bg);
+  color: var(--sk-card-text);
+  border-radius: 10px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.45);
+}
+
+.sk-head {
+  margin: 0 0 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sk-accent);
+}
+
+.sk-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sk-tags li {
+  padding: 5px 12px;
+  font-size: 0.9rem;
+  color: var(--sk-card-text);
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 999px;
+}
+
+/* phones: show the whole video */
+@media (max-width: 700px) {
+  .sk-bg { object-fit: contain; }
+}
