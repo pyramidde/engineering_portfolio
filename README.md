@@ -5,9 +5,8 @@ I'm Daniel Matthew Panganiban and I'm an IB student.
 My engineering portfolio with my overall collection of my projects I've made throughout the years.
 
 <div align="center">
-  <img src="images/IMG_5016.JPG" alt="EFR Rover" width="900" />
-  <p><strong>EFR Rover</strong> </p>
-  <p>after 1 year of development.</p>
+  <img src="images/IMG_5016.JPG" alt="EFR Rover" width="750" />
+  <p><strong>EFR Rover</strong> after one year of continous development.</p>
 </div>
 
 ## Featured Projects
@@ -43,7 +42,7 @@ A passion project serving multiple disciplinaries teaching me essential skills a
 
 ## Currently Exploring
 
-[What you're building, learning, or improving next.]
+An autonomous navigating shoebox basically a continuation of the EFR rover but primarily more focused for Nav2 development and learning.
 
 ## Contact
 
